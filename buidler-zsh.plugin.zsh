@@ -1,13 +1,37 @@
-
-
-
-
-#compdef buidler
+# zsh completion for buidler (https://buidler.dev/)
+#
+# version:  0.1.0
+# github:   https://github.com/gonzalobellino/buidler-zsh
+#
+# license:
+#
+#MIT License
+#
+#Copyright (c) 2020 gonzalobellino
+#
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+##copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in all
+#copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#SOFTWARE.
+#
 #autoload
 
 #zstyle ':completion:*:*:buidler:*' option-stacking yes
  
-__buidler_tool_complete() {
+__bdldr_complete() {
   local -a _1st_arguments
   local context state line curcontext="$curcontext"
 
@@ -25,10 +49,10 @@ __buidler_tool_complete() {
 
 
   _arguments -C \
-    '(--config)--config[A Buidler config file.]' \
+    '(--config)--config[A Buidler config file.]:file:_files -g \*.\(js\|ts\)' \
     '(--emoji)--emoji[Use emoji in messages.]' \
     '(--help)--help[Shows this message, or a tasks help if its name is provided]' \
-    '(--max-memory)--max-memory[The maximum amount of memory that Buidler can use.]' \
+    '(--max-memory)--max-memory[The maximum amount of memory that Buidler can use.]:int:' \
     '--network[The network to connect to.]:The network to connect to.:(localhost robsten kovan)' \
     '(--show-stack-traces)--show-stack-traces[Show stack traces.]' \
     '(--verbose)--verbose[Enables Buidler verbose logging]' \
@@ -55,38 +79,36 @@ __buidler_tool_complete() {
           _values 'console' '*--no-compile'  &&  ret=0;
           ;;
         (node)
-          _values 'node' '--hostname'  &&  ret=0;
+          _values 'node'  '--hostname' &&  ret=0;
           ;;
-        (run)
+        (run|test)
           _values 'run' "--no-compile[Don't compile before running this task]"
           _arguments '*:file:_files -g \*.\(js\|ts\)' &&  ret=0;
-          ;;
-        (show)
-          _values 'show' \
-            'raw' 'builtins' 'before-rules' 'user-rules' 'after-rules' 'logging-rules' 'listening' 'added' \
-          && ret=0
           ;;
       esac
       ;;
     (subsubcmds)
       case "$line[1]" in
         (node)
-          _values 'node' '--port'  &&  ret=0;
+          _values 'node' '--port'  &&  ret=0;         
           ;;
-        (run)
-          _arguments '*:file:_files -g \*.\(js\|ts\)'
+        (run|test)
+          _arguments '*:file:_files -g \*.\(js\|ts\)' &&  ret=0;
           ;;
+        (compile|console)
+        ;;
       esac
+      ;; 
   esac
-
   return
 }
 
-compdef __buidler_tool_complete buidler
+compdef __bdldr_complete buidler
 
-alias buidlc="buidler compile"
-alias buidlcon="buidler console"
-alias buidlt="buidler test"
-alias buidlr="buidler run"
-alias buidln="buidler node"
-alias buidlh="buidler help"
+#alias buidler="npx buidler"
+alias buid="npx buidler"
+alias buidc="npx buidler compile"
+alias buidt="npx buidler test"
+alias buidr="npx buidler run"
+alias buidn="npx buidler node"
+alias buidh="npx buidler help"

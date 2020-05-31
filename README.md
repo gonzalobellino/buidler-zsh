@@ -26,5 +26,5 @@ To activate it, add **buidler-zsh** to the plugins array of your **.zshrc** file
 plugins=(... buidler-zsh)
 ```
 
-**You need to reload ZSH (source .zshrc) or logout the active terminal.**
+**You need to reload ZSH (source .zshrc) or logout from the active terminal.**
 

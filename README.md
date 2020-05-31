@@ -10,7 +10,7 @@ Clone this repository [https://github.com/gonzalobellino/buidler-zsh.git](https:
 
 ### Manual mode
 
-Download this file [buidler-zsh.plugin.zsh](buidler-zsh.plugin.zsh) and move it to a new directory **$ZSH_CUSTOM/plugins/buidler-zsh**
+Download this file [buidler-zsh.plugin.zsh](https://raw.githubusercontent.com/gonzalobellino/buidler-zsh/master/buidler-zsh.plugin.zsh) and move it to a new directory **$ZSH_CUSTOM/plugins/buidler-zsh**
 
 
 ```
@@ -25,3 +25,6 @@ To activate it, add **buidler-zsh** to the plugins array of your **.zshrc** file
 ```
 plugins=(... buidler-zsh)
 ```
+
+**You need to reload ZSH (source .zshrc) or logout the active terminal.**
+

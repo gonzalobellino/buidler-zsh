@@ -30,7 +30,13 @@
 #autoload
 
 #zstyle ':completion:*:*:buidler:*' option-stacking yes
- 
+
+
+buidler() {
+  echo "run npx --no-install buidler..."
+  npx --no-install buidler "$@"
+}
+
 __bdldr_complete() {
   local -a _1st_arguments
   local context state line curcontext="$curcontext"
@@ -105,10 +111,9 @@ __bdldr_complete() {
 
 compdef __bdldr_complete buidler
 
-#alias buidler="npx buidler"
-alias buid="npx buidler"
-alias buidc="npx buidler compile"
-alias buidt="npx buidler test"
-alias buidr="npx buidler run"
-alias buidn="npx buidler node"
-alias buidh="npx buidler help"
+alias buid="npx --no-install buidler"
+alias buidc="npx --no-install buidler compile"
+alias buidt="npx --no-install buidler test"
+alias buidr="npx --no-install buidler run"
+alias buidn="npx --no-install buidler node"
+alias buidh="npx --no-install buidler help"

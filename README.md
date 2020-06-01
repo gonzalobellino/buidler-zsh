@@ -1,6 +1,6 @@
 # Buidler Plugin
 
-This plugin adds completion for managing NomicLabs Buidler tool [buidler.dev](buidler.dev)
+This plugin for Oh-My-Zsh ([zsh](https://ohmyz.sh/)) adds completion and useful aliases for managing NomicLabs Buidler tool [buidler.dev](buidler.dev)
 
 ## Instalation
 
@@ -28,3 +28,14 @@ plugins=(... buidler-zsh)
 
 **You need to reload ZSH (source .zshrc) or logout from the active terminal.**
 
+
+## Aliases
+
+| Alias   | Command                            |
+| ------- | ---------------------------------- |
+| buid     | `npx --no-install buidler`        |
+| buidc    | `npx --no-install buidler compile`|
+| buidt    | `npx --no-install buidler test`   |
+| buidr    | `npx --no-install buidler run`    |
+| buidn    | `npx --no-install buidler node`   |
+| buidh    | `npx --no-install buidler help`   |

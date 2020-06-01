@@ -2,7 +2,9 @@
 
 This plugin for Oh-My-Zsh ([zsh](https://ohmyz.sh/)) adds completion and useful aliases for NomicLabs Buidler tool [buidler.dev](buidler.dev)
 
-## Instalation
+[![asciicast](https://asciinema.org/a/99xuMgZY0blJtrElyUHqVSa72.svg)](https://asciinema.org/a/99xuMgZY0blJtrElyUHqVSa72)
+
+## installation
 
 ### Git mode
 

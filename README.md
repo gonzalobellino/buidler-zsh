@@ -1,6 +1,6 @@
 # Buidler Plugin
 
-This plugin for Oh-My-Zsh ([zsh](https://ohmyz.sh/)) adds completion and useful aliases for managing NomicLabs Buidler tool [buidler.dev](buidler.dev)
+This plugin for Oh-My-Zsh ([zsh](https://ohmyz.sh/)) adds completion and useful aliases for NomicLabs Buidler tool [buidler.dev](buidler.dev)
 
 ## Instalation
 
